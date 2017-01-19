@@ -1,0 +1,7 @@
+dependencies:
+  override:
+    - echo "No dependencies."
+test:
+  override:
+    - docker build -t ngerakines/docker-asciidoctor .
+    - docker run ngerakines/docker-asciidoctor asciidoctor --version
