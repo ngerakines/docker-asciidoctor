@@ -1,10 +1,18 @@
+
 machine:
   services:
     - docker
 dependencies:
   override:
-    - echo "No dependencies."
+    - docker info
+    - docker build --rm=false -t ngerakines/asciidoctor .
 test:
   override:
-    - docker build -t ngerakines/docker-asciidoctor .
-    - docker run ngerakines/docker-asciidoctor asciidoctor --version
+    - docker run ngerakines/asciidoctor asciidoctor --version
+
+deployment:
+  hub:
+    branch: master
+    commands:
+      - docker login -e $HUB_EMAIL -u $HUB_USER -p $HUB_PASSWORD
+      - docker push ngerakines/asciidoctor
