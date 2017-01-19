@@ -26,7 +26,7 @@ RUN apk add --update --no-cache gcc g++ make bash curl zip unzip tar openjdk8-jr
     /bin/bash -c -l "sdk install lazybones" && \
     /bin/bash -c -l "sdk flush archives" && \
     /bin/bash -c -l "sdk flush temp" && \
-    apk del bash curl unzip tar gcc g++ make ruby-dev python-dev py-pip libjpeg-turbo-dev zlib-dev && \
+    apk del bash curl unzip tar gcc g++ ruby-dev python-dev py-pip libjpeg-turbo-dev zlib-dev && \
     rm -rf /tmp/* /var/cache/apk/* ~/.cache/pip
 
 WORKDIR /documents
