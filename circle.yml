@@ -1,3 +1,6 @@
+machine:
+  services:
+    - docker
 dependencies:
   override:
     - echo "No dependencies."
